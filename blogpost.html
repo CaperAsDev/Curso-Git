@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Capipost</title>
+</head>
+<body>
+    <header>
+        <h1>Capi blog es un lugar magico</h1>
+        <p>Aqui resumire lo que voy aprendiendo de git :3</p>
+    </header>
+    <main>
+        <h2>Git</h2>
+        <p>Git es nuestro sistema de control de versiones:</p>
+        <ul>
+            <li>Podemos hacerle seguimiento a un archivo o carpeta. Este seguimiento nos permite volver a versiones pasadas sin problema.</li>
+            <li>Podemos crear ramas para trabajar en diferentes dimensiones nuestro archivo sin dañar el archivo base.</li>
+            <li>Estas ramas las podemos fusionar a la rama principal cuando queramos y asi aplicar los cambios.</li>
+
+        </ul>
+        <p>Para manejar git usamos nuestra terminal o linea de comandos. Existe una gran cantidad de comandos pero algunos de los mas usados son:</p>
+        <ul>
+            <li><b>Init</b> nos permite iniciar un repositorio, este sera el lugar donde se guarden todos estos cambios y versiones.</li>
+            <li><b>Add</b> : es el comando que lleva los archivos que le indiquemos al staging, este es el espacio en memoria RAM que se dedica a los cambios que aun no han sido enviados al repositorio.</li>
+            <li><b>Commit</b> : es el comando que envia esos archivos que estaban en staging al repositorio que inciamos con init. Para hacer commit debemos usar un atributo "-m" y escribir un mensaje que nos indicara a que cambios corresponde el commit.</li>
+            <li><b>Log</b> : nos permite ver el historial de commit, cada commit tiene un codigo y con el podemos con ayuda de otro comando volver a la version de un archivo en ese commit.</li>
+            <li><b>Diff</b> : con este comando veremos la diferencia entre dos versiones del mismo archivo, si no le ponemos ningun codigo comparara las dos ultimas versiones, si queremos comparar alguna en especifico debemos darle los dos codigos de commit al comando(separados por un espacio)</li>
+            <li><b>Status</b> : con este comando veremos en que estado se encuentran nuestros archivos, veremos si hay cambios para hacer commit o archivos que no estan tracked (en seguimiento) o archivos que esten en staging esperando su commit.</li>
+            <li><b>rm</b> : asi como en la terminal, rm significa remove y lo que hace es borrar un archivo de git, asi que se le dejara de hacer seguimiento.</li>
+            <li><b>Reset</b> : este comado regresa un archivo al commit indicado, se puede usar con --soft, -mixed o --hard y cada uno sera mas extremo con el regreso de version: el hard eliminara todos los commit sucedidos luego del momento al que queremos regresar y elminara tambn la informacion en el area de staging, y el soft regresara pero mantendra en el staging la informacion que se encuentre ahi, permitiendonos  aplicar los cambios desde la version a la que regresamos(es como hacer que los otros commits no existieron y cambiar todo desde un commit especifico).</li>
+            <li><b>Checkout</b> : te permite viajar en el tiempo como reset solo que con la posibilidad de volver al futuro. nada mas usa el codigo del commit al que quieres volver y para regresar a donde estabas usa la palabra "master" (o el nombre de la rama principal). Con checkout creas nuevas ramas para experimentar y hacer cosas sin modificar la rama principal.</li>
+
+        </ul>        
+    </main>
+    <footer>
+        <div>
+            <p>Algunos links que han compartido en el chat del curso:</p>
+            <a href="https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html" target="_blank">Git flow (ramificaciones en Git)</a>
+            <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" target="_blank">Tutoriales de Git</a>
+        </div>
+    </footer>
+</body>
+</html>
