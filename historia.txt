@@ -6,3 +6,6 @@ Hoy hago otro cambio a ver si baja de staging
 Otro mas
 
 Un nuevo cambio se guardara
+
+Este cambio se guarda pero hace comité sin subirlo a stage
+Ahora enviare otro commit para luego devolverme a la versión anterior a ver que paso
