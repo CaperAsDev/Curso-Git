@@ -31,9 +31,54 @@
             <li><b>Status</b> : con este comando veremos en que estado se encuentran nuestros archivos, veremos si hay cambios para hacer commit o archivos que no estan tracked (en seguimiento) o archivos que esten en staging esperando su commit.</li>
             <li><b>rm</b> : asi como en la terminal, rm significa remove y lo que hace es borrar un archivo de git, asi que se le dejara de hacer seguimiento.</li>
             <li><b>Reset</b> : este comado regresa un archivo al commit indicado, se puede usar con --soft, -mixed o --hard y cada uno sera mas extremo con el regreso de version: el hard eliminara todos los commit sucedidos luego del momento al que queremos regresar y elminara tambn la informacion en el area de staging, y el soft regresara pero mantendra en el staging la informacion que se encuentre ahi, permitiendonos  aplicar los cambios desde la version a la que regresamos(es como hacer que los otros commits no existieron y cambiar todo desde un commit especifico).</li>
-            <li><b>Checkout</b> : te permite viajar en el tiempo como reset solo que con la posibilidad de volver al futuro. nada mas usa el codigo del commit al que quieres volver y para regresar a donde estabas usa la palabra "master" (o el nombre de la rama principal). Con checkout creas nuevas ramas para experimentar y hacer cosas sin modificar la rama principal.</li>
-
+            <li><b>Checkout</b> : te permite viajar en el tiempo como reset solo que con la posibilidad de volver al futuro. nada mas usa el codigo del commit al que quieres volver y para regresar a donde estabas usa la palabra "master" en lugar del codigo (o el nombre de la rama principal). Con checkout creas nuevas ramas para experimentar y hacer cosas sin modificar la rama principal.</li>
+            <li><b>Show</b>: este comando me mostrata informacion del ultimo commit realizado o si especificamos el commit-id luego de show veremos los cambios; adiciones y sustracciones de los archivos en ese commit.</li>
+            <li><b>log --stat</b>: con este comando vere la cantidad de insertions(adiciones) y detetion(eliminaciones) que hice en los diferentes commit a parte del espacio nuevo ocupado.</li>
         </ul>        
+        <p>Cuando trabajas en un proyecto con otras personas, van a necesitar que todos tengan los mismo archivos y que se esten actualizando constantemente con los avances que genera cada uno, para esto se usa un repositorio remoto donde puedes trabajar con muchas personas y que todas esten aportando simultaneamente. Para trabajar con repositorios remotos necesitaras algunos comandos adicionales:</p>
+        <ul>
+            <li><b>git clone url_del_servidor_remoto</b>: nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.</li>
+            <li><b>git push</b>: luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto</li>
+            <li><b>git fetch</b>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).</li>
+            <li><b>git merge</b>: también usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.</li>
+            <li><b>git pull</b>: básicamente, git fetch y git merge al mismo tiempo.</li>
+        </ul>
+        <p>A continuacion un lista con unos comando mas especificos que igualmente son utiles dependiendo de la circunstancia.</p>
+        <ul>
+            <li><b>git log --online</b>: Te muestra el id commit y el título del commit.</li>
+            <li><b>git log --decorate</b>: Te muestra donde se encuentra el head point en el log.
+            </li>
+            <li><b>git log --stat</b>: Explica el número de líneas que se cambiaron brevemente.
+            </li>
+            <li><b>git log -p</b>: Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.</li>
+            <li><b>git shortlog</b>: Indica que commits ha realizado un usuario, mostrando el usuario y el título de sus commits.</li>
+            <li><b>git log --graph y git log --pretty=format:"%cn hizo un commit %h el dia %cd"</b>: muestra mensajes personalizados.</li>
+            <li><b>git log -3</b>: Limitamos el número de commits</li>
+            <li><b>git log --after="2022-6-8"</b></li>
+            <li><b>git log --after="today"</b></li>
+            <li><b>git log --after="2022-6-8" --before="today"</b>: Estos tres ubican commits por fechas.</li>
+            <li><b>git log --author="Name Author"</b>: Commits echos por quien tenga exactamente el nombre indicado.</li>
+            <li><b>git log --grep="ABC"</b>: Busca que conicidan con exactamente el mensaje puesto entre comillas.</li>
+            <li><b>git log --grep="ABC" -i</b>: Busca los commits ignorando si es mayuscula o minuscula</li>
+            
+        </ul>
+        <p>Las ramas son la forma de hacer cambios a nuestros archivos sin comprometer la rama primcipal, al trabajar en ramas secundarias tenemos varias ventajas:</p>
+        
+        <ul>
+            <li>Pueden haber personas trbajando simultaneamente en diferentes ramas, esto permite un progreso mas fluido del proyecto.</li>
+            <li>Podemos hacer cambios experimentales al proyecto sin afectar la rama principal, asi, si funcionan los cambios podremos fusionar las ramas y aplicar los cambios.</li>
+        </ul>
+        <p>Head resulta ser como nuestro indicador de la ubicacion en donde estamos en el proyectos segun nuestros commits en git, por defecto el head se ubucara en donde se realizo el ultimo commit, pero con el comando checkout nos podemos mover entre ramas.Algunos comandos utiles a la hora de trabajar con ramas son:</p>
+        <ul>
+            <li><b>git branch branchName:</b> este comando crea una nueva rama con el nombre que se indique. Las ramas se crean desde el lugar donde estemos ubicados.</li>
+            <li><b>git branch -b branchName:</b>este comando a parte de crear la rama te dirige a ella, ubicando el head en la misma a diferencia del primer comando donde solo la crea y debes hacer un checkout para dirigir el head a ella.</li>
+            <li><b>git checkout branchName/commit-id:</b>usar este comando nos llevara al commit o a la rama indicada.</li>
+            <li><b>git reset commit-id:</b>este comando nos lleva a cualquier commit sin importar la rama, sin embargo borrara todo commit posterior. Revisar opciones de reset en el parrafo anterior.</li>
+            <li><b>git commit -am:</b>este comando hace git add y git commit -m, solo debemos poner el mensaje a continuacion entre comillas y listo. Solo funciona con archivos que ya tengan historial.</li>
+            <li><b>git branch -l:</b>este comando listara todas las ramas que existen. </li>
+            <li><b>git branch -m branchName branchNewName</b>este comando nos permite cambiar de nombre una rama.</li>
+        </ul>
+        <p>Cuando se van a fusionar ramas usamos el comando <strong>git merge nombre_de_la_rama_a_fusionar</strong>, el merge siempre se hace trayendo los cambios de la rama que estamos llamando a la rama donde estamos, si estamos en la rama master y traemos los cambios de otra rama, el resultado sera un commit donde nuestra rama master ahora incuye los cambios de la otra rama. En caso de presentarse conflictos(la misma linea de codigo modificada en ambas ramas) se debera solucionar borrando el cambio que no se quiere y terminando el commit.</p>
     </main>
     <footer>
         <div>
