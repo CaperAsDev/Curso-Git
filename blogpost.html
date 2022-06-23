@@ -91,6 +91,8 @@
             <li><b>git push origin(manda cambios a orignin remoto) master(desde rama master o main local):</b> con este comando enviamos los commit desde el repositorio local al repositorio remoto, nuestro problema es que nuestra rama se llama master y la rama de github se llama main asi que al no coincidir github interpreta que estamos creando una nueva rama y envia los cambios a una rama de main llamada master. Para solucionar esto hay que cambiarle el nombre por defecto a los nuevos repositorios locales con el comando <b>"git config --global init.defaultBranch main"</b>, eso servira para los nuevos, para el actual o hacemos merge cada que queramos de la rama master que se crea o cambiamos el comando de push de tal manera: <b>"git push origin master:main":</b> de esta forma le decimos que haga push a la rama origin con los datos de nuestra rama master a su rama main <b>NOTA</b>: intente este comando y no sirvio, en vez de ese el comando git push --help me sugeria usar <b>"git push origin HEAD:main"</b> aunque creo que para que funcione antes toca hacer un <b>git pull origin main --allow-unrelated-histories</b>.</li>
 
             <p>Definitivamente si quieres ahorrarte molestias primero debes crear el repositorio en remoto y copiarlo a local luego para empezar a trabajar.</p>
+
+            <p>Yo supongo que empezar a trabajar en un proyecto que ya esta funcionando es igualmente facil, solo es copiar el repositorio y listo, la otra anotacion es hacer siempre el pull para traerse los cambios de los demas y tener los archivos actualizados.</p>
         </ul>
     </main>
     <footer>
