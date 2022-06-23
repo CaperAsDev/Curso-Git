@@ -42,10 +42,16 @@ main h2{
     font-size: 2rem;
 
 }
+main h3{
+    margin: 5px 0;
+    color:rgb(60, 124, 145);
+    font-size: 2rem;
+}
 main p{
     font-size: 1.5rem;
-    margin: 5px 0;
-    color: rebeccapurple;
+    line-height: 2rem;
+    margin: 10px 0;
+    color: rgb(88, 26, 83);
 }
 main ul{
     padding-left: 20px;
@@ -53,7 +59,7 @@ main ul{
 }
 main ul li{
     margin-top: 5px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 main ul li b{
     color: lightcoral;

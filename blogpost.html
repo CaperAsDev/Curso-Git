@@ -89,17 +89,47 @@
             <li><b>git remote add origin (url):</b>este es el primer comando a ejecutar para unir los repositorios, en este paso pasaron varias cosas: una de ellas fue que no debi copiar la url sino la ssh; esto me ubiera ahorado un dolor de cabeza al tener que autentificar mi cuenta ya que para hacer el push luego me pediria cuenta y contraseña de github, pero git hub ya no acepta este tipo de confirmacion, debe ser con un token y para eso se usa ssh, asi que tuve que instalar otro complemento que me manejara ese proceso de autentificacion, para instalarlo use <b>"brew install gh"</b> y segui las instrucciones.</li>
             <li><b>git pull origin(la rama origing remota) master/main(la rama local) --allow-unrelated-histories:</b>este comando se usa ya que al ser diferentes repositorios con diferentes historias debes permitir juntarlos(trael el repositorio remoto al local), a mi me salieron otros problemas que soluciones siguiendo los comandos que me decia la terminal, era algo de hacer merge o rebase (la diferencia en lo que entendi es que el merge respeta y mantiene la historia de las dos ramas y el rebase borra el historial de la que se junta)</li>
             <li><b>git push origin(manda cambios a orignin remoto) master(desde rama master o main local):</b> con este comando enviamos los commit desde el repositorio local al repositorio remoto, nuestro problema es que nuestra rama se llama master y la rama de github se llama main asi que al no coincidir github interpreta que estamos creando una nueva rama y envia los cambios a una rama de main llamada master. Para solucionar esto hay que cambiarle el nombre por defecto a los nuevos repositorios locales con el comando <b>"git config --global init.defaultBranch main"</b>, eso servira para los nuevos, para el actual o hacemos merge cada que queramos de la rama master que se crea o cambiamos el comando de push de tal manera: <b>"git push origin master:main":</b> de esta forma le decimos que haga push a la rama origin con los datos de nuestra rama master a su rama main <b>NOTA</b>: intente este comando y no sirvio, en vez de ese el comando git push --help me sugeria usar <b>"git push origin HEAD:main"</b> aunque creo que para que funcione antes toca hacer un <b>git pull origin main --allow-unrelated-histories</b>.</li>
+        </ul>
 
-            <p>Definitivamente si quieres ahorrarte molestias primero debes crear el repositorio en remoto y copiarlo a local luego para empezar a trabajar.</p>
+        <p>Definitivamente si quieres ahorrarte molestias primero debes crear el repositorio en remoto y copiarlo a local luego para empezar a trabajar.</p>
 
-            <p>Yo supongo que empezar a trabajar en un proyecto que ya esta funcionando es igualmente facil, solo es copiar el repositorio y listo, la otra anotacion es hacer siempre el pull para traerse los cambios de los demas y tener los archivos actualizados.</p>
-            <h2>GitHub Desktop</h2>
-            <p>Instale la version de desktop y parece bastante util e intuitiva, la usare ahora en lugar de la version web pero como igual no tengo mucha experiencia en la version web no sabria si es mejor o igual la version desktop... tal vez use un poco las dos y vere como se actualizan las cosas que haga en una o en la otra.</p>
+        <p>Yo supongo que empezar a trabajar en un proyecto que ya esta funcionando es igualmente facil, solo es copiar el repositorio y listo, la otra anotacion es hacer siempre el pull para traerse los cambios de los demas y tener los archivos actualizados.</p>
+        <h2>GitHub Desktop</h2>
+        <p>Instale la version de desktop y parece bastante util e intuitiva, la usare ahora en lugar de la version web pero como igual no tengo mucha experiencia en la version web no sabria si es mejor o igual la version desktop... tal vez use un poco las dos y vere como se actualizan las cosas que haga en una o en la otra.</p>
 
-            <h2>Claves SSH(secure shell)</h2>
+        <h2>Claves SSH(secure shell)</h2>
 
-            <p>Son la forma de conectarnos en interactuar con repositorios remotos de forma segura, usa la criptografia asimetrica donde se usan dos llaves: la llave privada y la llave publica. Yo como usuario tengo mi llave publica y mi llave privada, la llave publica es la que usara quien  quiera enviarme algo; la usara para encriptar el contenido, posteriormente yo desencriptare ese contenido con mi llave privada, solo YO puedo o debo tener acceso a mi llave privada, no debo enviarsela ni mostrarsela a nadie.</p>
-            <p>el proceso para crear una llave esta en la pagina de github, asi como otra informacion necesaria del uso de github, dejare un enlace que lleva a un articulo que nos explica los url para conectarnos : http, ssh. <a href="https://docs.github.com/es/get-started/getting-started-with-git/about-remote-repositories">blog GitHub</a></p>
+        <p>Son la forma de conectarnos en interactuar con repositorios remotos de forma segura, usa la criptografia asimetrica donde se usan dos llaves: la llave privada y la llave publica. Yo como usuario tengo mi llave publica y mi llave privada, la llave publica es la que usara quien  quiera enviarme algo; la usara para encriptar el contenido, posteriormente yo desencriptare ese contenido con mi llave privada, solo YO puedo o debo tener acceso a mi llave privada, no debo enviarsela ni mostrarsela a nadie.</p>
+        <p>el proceso para crear una llave esta en la pagina de github, asi como otra informacion necesaria del uso de github, dejare un enlace que lleva a un articulo que nos explica los url para conectarnos : http, ssh. <a href="https://docs.github.com/es/get-started/getting-started-with-git/about-remote-repositories">blog GitHub</a></p>
+        <h3>Los tags</h3>
+        <ul>
+
+            <li>
+                <p><b>git tag -a v1.0(nombre del tag) -m "Mensaje del tag" c09c3d1(codigo del commit donde quiero poner el tag)</b>Esta es la forma de poner un tag, ususalmente sirven mas de referencia para el git hub y la gente que este interesada en saber de esos puntos donde sucedio algo.</p>
+            </li>
+            <li>
+                <p><b>git tag: </b>asi veo mis tags</p>
+            </li>
+            <li>
+                <p><b>git show-ref --tags: </b>me dice a que commit estan asociados mis tags.</p>
+            </li>
+            <li>
+                <p><b>git push origin --tags: </b>con este comando envio el tag al repositorio.</p>
+            </li>
+            <li>
+                <p><b>git tag -d "nombreDelTag": </b>asi borro un tag de nuestro git local.</p>
+            </li>
+            <li>
+                <p><b>git push origin :refs/tags/"nombreDelTag": </b>asi borro un tag del repositorio remoto.</p>
+            </li>
+
+        </ul>
+        <h2>Las branches</h2>
+        <p>A continuacion algunos comandos utiles para conocer inforamción de nuestras ramas:</p>
+        <ul>
+            <li><p><b>git show-branch</b> y <b>git show-branch --all: </b>estos dos comandos nos muestran cuales son nuestras ramas y un poco de su historial que combinado con:(el comando de abajo).</p></li>
+            <li><p><b>git log --all --graph --oneline:</b> podremos ver de manera grafica nuestro historial de logs. Sin el --oneline mostrara mas informacion, tambien se le puede adicionar --decorate.</p></li>
+            <li><p><b>alias arbolito="git log --all --graph --decorate --oneline":</b>con este comando creare un nuevo comando que al escribir arbolito me mostrara el diagrama de los log decorado y en una linea.</p></li>
         </ul>
     </main>
     <footer>
