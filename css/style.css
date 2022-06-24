@@ -7,12 +7,11 @@ html{
     font-size: 62.5%;
 }
 body{
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
 }
 body header h1{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Helvetica, sans-serif;
     font-weight: bolder;
     font-size: 2.5rem;
     padding: 15px;
@@ -20,12 +19,12 @@ body header h1{
     background-color: rgb(232, 219, 221);
 
 }
-body header p{
-    align-self: flex-start;
-    margin-top: 10px;
+body header div{
+    width: 30%;
+    text-align: center;
+    margin: 10px auto;
     padding: 5px;
     border-radius: 5px;
-    display: inline-block;
     border: 3px double lightblue;
     background-color: lightcyan;
     font-size: 1.5rem;
@@ -35,23 +34,46 @@ main{
     width: 80%;
     margin: 20px auto;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-main h2{
+main .git,.github, .branches, .workflow{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main .git p{
+    align-self: flex-start;
+}
+main .commands{
+    width: 90%;
+    padding: 25px;
+    border: 5px double lightseagreen;
+    border-radius: 20px;
+}
+main section h2{
     margin: 5px 0;
     color:lightsalmon;
-    font-size: 2rem;
+    font-size: 3rem;
+    border: 2px solid lightcoral;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: rgb(214, 238, 253);
 
 }
-main h3{
+main section h3{
     margin: 5px 0;
     color:rgb(60, 124, 145);
     font-size: 2rem;
 }
-main p{
+main section p{
     font-size: 1.5rem;
     line-height: 2rem;
     margin: 10px 0;
-    color: rgb(88, 26, 83);
+    color: rgb(58, 17, 54);
 }
 main ul{
     padding-left: 20px;
@@ -66,14 +88,20 @@ main ul li b{
 }
 
 footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: fit-content;
     padding: 10px 0;
     background-color: lightgray;
     font-size: 1.5rem;
 }
+footer p{
+    margin: 10px;
+}
 footer div{
-    width: 100%;
+    width: 90%;
     height: 100%;
 }
 footer div a{
