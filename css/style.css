@@ -115,3 +115,24 @@ footer div a{
     text-decoration: none;
 
 }
+
+/* Agregando Media Queries */
+
+@media screen and (max-width: 900px){
+
+    main .git,.github, .branches, .workflow{
+        width: 95%;
+    }    
+    body header div{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 500px){
+
+    main .git,.github, .branches, .workflow{
+        width: 100%;
+    }    
+    body header div{
+        width: 70%;
+    }
+}
